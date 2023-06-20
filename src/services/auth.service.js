@@ -1,5 +1,5 @@
-import User from "../models/User.js"
-import jwt  from "jsonwebtoken"
+import User from "../models/User.js"    //ARQUIVO MODELO
+import jwt  from "jsonwebtoken" // PACOTE
 
 const loginService = (email) => User.findOne({ email: email }).select("+password");
 

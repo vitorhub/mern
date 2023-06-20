@@ -57,25 +57,27 @@ const findById = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    try{const { name, username, email, password, avatar, background } = req.body
+    try {
+        const { name, username, email, password, avatar, background } = req.body
 
-    if (!name && !username && !email && !password && !avatar && !background) {
-        res.status(400).send({ message: "Submit at least one  field for update" })
-    }
+        if (!name && !username && !email && !password && !avatar && !background) {
+            res.status(400).send({ message: "Submit at least one  field for update" })
+        }
 
-    const { id, user } = req;
+        const { id, user } = req;
 
-    await userService.updateService(
-        id,
-        name,
-        username,
-        email,
-        password,
-        avatar,
-        background
-    )
+        await userService.updateService(
+            id,
+            name,
+            username,
+            email,
+            password,
+            avatar,
+            background
+        )
 
-    res.send({ message: "User sucessfully updated!" })}catch(err){
+        res.send({ message: "User sucessfully updated!" })
+    } catch (err) {
         res.status(500).send({ message: err.message }) // para erro try catch copiar mensagem
     }
 }

@@ -1,10 +1,11 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({ // metodo Schema pertence a biblioteca mongoose
+    // Schema para limitar como os documentos devem ser criados
     name: {
         type: String,
-        required: true,
+        required: true,     // verificando cada campo só que no banco de dados
     },
     username: {
         type: String,
@@ -35,6 +36,6 @@ UserSchema.pre("save", async function(next){  // função pre do mongoose antes 
     next()
 })   
 
-const User = mongoose.model("User", UserSchema)
+const User = mongoose.model("User", UserSchema)  // User recebe model com nome User e Schema chamado UserSchema que foi criado acima
 
 export default User
