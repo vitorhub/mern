@@ -19,6 +19,12 @@ export const searchByTitleService = (title) =>
     .sort({ _id: -1 })
     .populate("user");
 
+export const byUserService = (id) => {
+  News.find({user: id})
+  .sort({ _id: -1 })
+  .populate("user");
+}
+
 export {
   createService,
   findAllService,
