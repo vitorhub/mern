@@ -186,7 +186,7 @@ export const byUser = async (req, res)=>{
     }
 }
 
-export const update = async (req, res)=>{
+export const update = async (req, res) => {
     try {
         const {title, text, banner} = req.body
         const {id} = req.params
@@ -206,6 +206,10 @@ export const update = async (req, res)=>{
     } catch (err) {
         res.status(500).send({ message: err.message})
     }
+}
+
+export const erase = async (req, res) => {
+
 }
 
 export { create, findAll, topNews, findById }

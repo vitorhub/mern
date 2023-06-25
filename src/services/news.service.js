@@ -28,6 +28,9 @@ export const byUserService = (id) => {
 export const updateService = (id, title, text, banner) => {
   News.findOneAndUpdate({_id: id}, {title, text, banner}, {rawResult: true,})
 }
+export const eraseService = (id) => {
+  News.findByIdAndDelete({_id: id})
+}
 
 export {
   createService,
